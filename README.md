@@ -1,6 +1,8 @@
 ## Resumeweb
 
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/mthais/resumeweb.svg?columns=all)](https://waffle.io/mthais/resumeweb)
+
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
+![Waffle.io - Columns and their card count](https://badge.waffle.io/mthais/resumeweb.svg?columns=all)
 
 ## What is Resumeweb?
 
