@@ -1,9 +1,45 @@
+import Formsy from 'formsy-react-2';
+import { Link } from "react-router-dom";
 import React, { Component } from 'react';
+import { PasswordRule } from './../../Rules/PasswordRule';
+import { FormInput } from './../../Components/Form/FormInput';
 import { LinkedinButton } from './../../Components/Social/Linkedin';
 import { Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { Link } from "react-router-dom";
 
 export class SignupPage extends Component {
+
+    /**
+     * Constructor method
+     *
+     */
+    constructor() {
+        super();
+        this.state = {
+            canSubmit: false
+        }
+        this.disableButton = this.disableButton.bind(this);
+        this.enableButton  = this.enableButton.bind(this);
+    }
+
+    /**
+     * Disable the submit button
+     *
+     */
+    disableButton() {
+        this.setState({
+            canSubmit: false
+        })
+    }
+
+    /**
+     * Enable the submit button
+     *
+     */
+    enableButton() {
+        this.setState({
+            canSubmit: true
+        });
+    }
 
     /**
      * Render the Login Page
@@ -24,33 +60,56 @@ export class SignupPage extends Component {
                         <span>OU</span>
                     </div>
                     
-                    <Form>      
+                    <Formsy.Form onValid={this.enableButton} onInvalid={this.disableButton} >      
 
                         {/* INPUT DE NAME */}
                         <FormGroup>
                             <Label for="name" className="mb-0">Nome</Label>
-                            <Input type="text" name="name" id="name" />
+                            <FormInput  name="name" 
+                                        required
+                                        validations={{
+                                            maxLength: 20
+                                        }}
+                                        validationErrors={{
+                                            maxLength: "O campo nome precisa ter no máximo 20 letras."
+                                        }}
+                                        maxLength="20"
+                                        id="name" />
                         </FormGroup>                  
                         
                         {/* INPUT DE EMAIL */}
                         <FormGroup>
                             <Label for="email" className="mb-0">Email</Label>
-                            <Input type="email" name="email" id="email" placeholder="email@contato.com" />
+                            <FormInput  validations={{
+                                            isEmail: true
+                                        }} 
+                                        validationErrors={{
+                                            isEmail: 'O e-mail digitado é inválido'
+                                        }} 
+                                        type="email" 
+                                        name="email" 
+                                        id="email"
+                                        placeholder="email@contato.com" />
                         </FormGroup>
 
                         {/* INPUT DE SENHA */}
                         <FormGroup>
                             <Label for="password" className="mb-0">Senha</Label>
-                            <Input type="password" name="password" id="password" />
+                            <FormInput  type="password" 
+                                        name="password" 
+                                        validations={{
+                                            passwordRule: PasswordRule
+                                        }}
+                                        id="password" />                        
                         </FormGroup>
 
                         {/* INPUT DE AGRREMENT */}
                         <FormGroup check>
                             <Label className="text-wrapper" check>
-                                <Input type="checkbox" />
+                                <FormInput required type="checkbox" name="policies" id="policies" />
                                 Para cadastrar, você concorda com nossa 
-                                <Link to={''}> Politica de privacidade</Link> e 
-                                <Link to={''}> Termos de uso</Link>
+                                <Link to={''} className="link"> Politica de privacidade</Link> e 
+                                <Link to={''} className="link"> Termos de uso</Link>
                             </Label>
                         </FormGroup>
 
@@ -59,11 +118,13 @@ export class SignupPage extends Component {
                                 <Link className="link" to="/login">Eu já tenho uma conta!</Link>
                             </Col>
                             <Col className="text-right">
-                                <Button className="px-4" color="primary">Cadastrar</Button>
+                                <Button disabled={!this.state.canSubmit} 
+                                        className="px-4" 
+                                        color="primary">Cadastrar</Button>
                             </Col>
                         </Row>
 
-                    </Form>
+                    </Formsy.Form>
                 </Col>
             </Row>
         );

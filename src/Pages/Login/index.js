@@ -1,9 +1,45 @@
-import React, { Component } from 'react';
-import { Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import Formsy from 'formsy-react-2';
 import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { PasswordRule } from './../../Rules/PasswordRule';
+import { FormInput } from './../../Components/Form/FormInput';
 import { LinkedinButton } from './../../Components/Social/Linkedin';
+import { Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 export class LoginPage extends Component {
+
+    /**
+     * Constructor method
+     *
+     */
+    constructor() {
+        super();
+        this.state = {
+            canSubmit: false
+        }
+        this.disableButton = this.disableButton.bind(this);
+        this.enableButton  = this.enableButton.bind(this);
+    }
+
+    /**
+     * Disable the submit button
+     *
+     */
+    disableButton() {
+        this.setState({
+            canSubmit: false
+        })
+    }
+
+    /**
+     * Enable the submit button
+     *
+     */
+    enableButton() {
+        this.setState({
+            canSubmit: true
+        });
+    }
 
     /**
      * Render the Login Page
@@ -28,18 +64,32 @@ export class LoginPage extends Component {
                         <span>OU</span>
                     </div>
                     
-                    <Form>                        
+                    <Formsy.Form onValid={this.enableButton} onInvalid={this.disableButton} >                        
                         
                         {/* INPUT DE EMAIL */}
                         <FormGroup>
                             <Label for="email" className="mb-0">Email</Label>
-                            <Input type="email" name="email" id="email" placeholder="email@contato.com" />
+                            <FormInput  validations={{
+                                            isEmail: true
+                                        }} 
+                                        validationErrors={{
+                                            isEmail: 'O e-mail digitado é inválido'
+                                        }} 
+                                        type="email" 
+                                        name="email" 
+                                        id="email"
+                                        placeholder="email@contato.com" />
                         </FormGroup>
 
                         {/* INPUT DE SENHA */}
                         <FormGroup>
-                            <Label for="password" className="mb-0">Password</Label>
-                            <Input type="password" name="password" id="password" />
+                            <Label for="password" className="mb-0">Senha</Label>
+                            <FormInput  type="password" 
+                                        name="password" 
+                                        validations={{
+                                            passwordRule: PasswordRule
+                                        }}
+                                        id="password" />
                         </FormGroup>
 
                         <Row>
@@ -47,11 +97,13 @@ export class LoginPage extends Component {
                                 <Link className="link" to="/signup">Eu não tenho uma conta!</Link>
                             </Col>
                             <Col className="text-right">
-                                <Button className="px-4" color="primary">Entrar</Button>
+                                <Button disabled={!this.state.canSubmit}
+                                        className="px-4" 
+                                        color="primary">Entrar</Button>
                             </Col>
                         </Row>
 
-                    </Form>
+                    </Formsy.Form>
                 </Col>
             </Row>
         );
