@@ -12,7 +12,7 @@ export class LoginPage extends Component {
     render() {
         return (
             <Row>
-                <Col className="pt-4">
+                <Col className="d-none d-sm-block pt-4">
                     <img width="100%" src="/login_person.png" />
                 </Col>
                 <Col>

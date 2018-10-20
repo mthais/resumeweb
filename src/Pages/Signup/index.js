@@ -12,7 +12,7 @@ export class SignupPage extends Component {
     render() {
         return (
             <Row>
-                <Col className="pt-5">
+                <Col className="d-none d-sm-block pt-5">
                     <img width="100%" src="/login_person.png" />
                 </Col>
                 <Col>
