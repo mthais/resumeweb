@@ -69,5 +69,5 @@ label {
 }
 .card{
   border: 0;
-  color: #00000020;
+  box-shadow: 0 1px 4px 0 #00000024;
 }
