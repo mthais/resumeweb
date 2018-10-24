@@ -67,3 +67,7 @@ label {
 .form-control {
   border-radius: 0;
 }
+.card{
+  border: 0px solid;
+  color: #00000020;
+}
