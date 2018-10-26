@@ -18,7 +18,7 @@ some screenshot
 ### How to solve this issue
 steps to solve
 
-### How to reproduze the user scenario
+### How to reproduce the user scenario
 
  - steps to reproduce the issue
 
