@@ -52,7 +52,7 @@ export class SignupPage extends Component {
                     <img width="100%" src="/login_person.png" />
                 </Col>
                 <Col>
-                    <h2 className="text-center page-title">Bem vindo!</h2>
+                    <h2 className="text-center page-title">Bem Vindo!</h2>
 
                     <LinkedinButton></LinkedinButton>
 
@@ -74,7 +74,8 @@ export class SignupPage extends Component {
                                             maxLength: "O campo nome precisa ter no máximo 20 letras."
                                         }}
                                         maxLength="20"
-                                        id="name" />
+                                        id="name"
+                                        className="form-control"/>
                         </FormGroup>                  
                         
                         {/* INPUT DE EMAIL */}
@@ -89,7 +90,8 @@ export class SignupPage extends Component {
                                         type="email" 
                                         name="email" 
                                         id="email"
-                                        placeholder="email@contato.com" />
+                                        placeholder="email@exemplo.com"
+                                        className="form-control"/>
                         </FormGroup>
 
                         {/* INPUT DE SENHA */}
@@ -100,7 +102,8 @@ export class SignupPage extends Component {
                                         validations={{
                                             passwordRule: PasswordRule
                                         }}
-                                        id="password" />                        
+                                        id="password"
+                                        className="form-control"/>                        
                         </FormGroup>
 
                         {/* INPUT DE AGRREMENT */}
