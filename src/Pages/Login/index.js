@@ -78,7 +78,8 @@ export class LoginPage extends Component {
                                         type="email" 
                                         name="email" 
                                         id="email"
-                                        placeholder="email@contato.com" />
+                                        className="form-control"
+                                        placeholder="email@exemplo.com" />
                         </FormGroup>
 
                         {/* INPUT DE SENHA */}
@@ -89,7 +90,8 @@ export class LoginPage extends Component {
                                         validations={{
                                             passwordRule: PasswordRule
                                         }}
-                                        id="password" />
+                                        id="password"
+                                        className="form-control"/>
                         </FormGroup>
 
                         <Row>
