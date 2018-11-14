@@ -1,7 +1,8 @@
 const model = require('../../models');
 const bcrypt = require('bcrypt');
 const jwt = require('jwt-simple');
-const { secret } = require('../../config/.env')
+const { secret } = require('../../config/.env') 
+
 
 exports.register = async (req, res) => {
     const newUser = req.body;
