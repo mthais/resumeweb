@@ -11,35 +11,35 @@ exports.register = async (req, res) => {
         data.password = undefined;
         res.status(201).json(data);
     }).catch(err => {
-        res.status(500).send(err)
+        res.status(500).send(err);
     })
 }
 
 exports.signin = async (req, res) => {
     try {
         if(!req.body.email || !req.body.password) {
-            return res.status(400).send("Informe o email ou senha")
+            return res.status(400).send("Informe o email ou senha");
         }
         const user = await model.User.findOne({ where: {
             email: req.body.email
-        }})
-        if (!user) return res.status(401).send("Usuário não encontrado!")
-        const isMatched = bcrypt.compareSync(req.body.password, user.password)
-        if (!isMatched) return res.status(401).send("Email/Senha inválido")
+        }});
+        if (!user) return res.status(401).send("Usuário não encontrado!");
+        const isMatched = bcrypt.compareSync(req.body.password, user.password);
+        if (!isMatched) return res.status(401).send("Email/Senha inválido");
 
-        const now = Math.floor(Date.now() / 1000)
+        const now = Math.floor(Date.now() / 1000);
         const payload = {
             id: user.id,
             name: user.name,
             email: user.email,
             iat: now,
             exp: now + (60 * 60 * 24 * 7)
-        }
+        };
 
         res.json({
             ...payload,
             token: jwt.encode(payload, secret)
-        })
+        });
     } catch (err) {
         console.log(err);
         res.stats(500).send(err)
@@ -50,7 +50,7 @@ exports.loginRequired = function(req, res, next) {
     if (req.user) {
         next();
     } else {
-        return res.status(401).json({ message: "Unathorizated user"})
+        return res.status(401).json({ message: "Unathorizated user"});
     }
 }
 
@@ -61,9 +61,9 @@ exports.middlewareUser = function(req, res, next) {
                 if (err) req.user = undefined;
                 if (new Date(decode.exp * 1000) > new Date()) {
                     req.user = decode;
-                    next()
+                    next();
                 } else {
-                    res.status(401).send("Session expired")
+                    res.status(401).send("Session expired");
                 }
         })
     } else {
