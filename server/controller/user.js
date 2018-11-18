@@ -1,7 +1,7 @@
 const model = require("../../models");
 const bcrypt = require("bcrypt");
 const jwt = require("jwt-simple");
-const { secret, linkedin } = require("../../config/.env") 
+const { secret, linkedin } = require("../../config/secrets") 
 const passport = require("passport")
 
 exports.register = async (req, res) => {

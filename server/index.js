@@ -1,3 +1,4 @@
+const result = require('dotenv').config()
 const express = require("express");
 const config = require("./server.config");
 const app = express();
@@ -7,11 +8,13 @@ const model = require("../models")
 const LinkedinStategy = require("passport-linkedin").Strategy;
 const cors = require("cors");
 const passport = require("passport")
-const { secret } = require("../config/.env")
-const { linkedin } = require("../config/.env");
+const { linkedin, secret } = require("../config/secrets");
 const session = require("express-session");
 const LocalStrategy = require("passport-local").Strategy
 
+if (result.error) {
+    throw result.error
+}
 // Set the build folder as static documents server
 app.use(express.static("build"))
 app.use(passport.initialize())
