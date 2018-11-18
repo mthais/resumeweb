@@ -1,8 +1,8 @@
-const model = require('../../models');
-const bcrypt = require('bcrypt');
-const jwt = require('jwt-simple');
-const { secret, linkedin } = require('../../config/.env') 
-const passport = require('passport')
+const model = require("../../models");
+const bcrypt = require("bcrypt");
+const jwt = require("jwt-simple");
+const { secret, linkedin } = require("../../config/.env") 
+const passport = require("passport")
 
 exports.register = async (req, res) => {
     const newUser = req.body;
@@ -58,8 +58,8 @@ exports.loginRequired = function(req, res, next) {
 
 exports.middlewareUser = function(req, res, next) {
     if (req.headers && req.headers.authorization 
-        && req.headers.authorization.split(' ')[0] === 'Bearer') {
-            jwt.verify(req.headers.authorization.split(' ')[1], secret, function(err, decode){
+        && req.headers.authorization.split(" ")[0] === "Bearer") {
+            jwt.verify(req.headers.authorization.split(" ")[1], secret, function(err, decode){
                 if (err) req.user = undefined;
                 if (new Date(decode.exp * 1000) > new Date()) {
                     req.user = decode;
@@ -85,7 +85,7 @@ exports.basicAuth = function(email, password, done) {
 }
 
 exports.logIn = function (req, res, next) {
-    passport.authenticate('local', function (err, user, info) {
+    passport.authenticate("local", function (err, user, info) {
         if (err) { return next(err); }
         if (!user) { return res.redirect(linkedin.callbackURL); }
         req.logIn(user, function(err) {
