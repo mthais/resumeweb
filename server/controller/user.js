@@ -1,8 +1,8 @@
 const model = require('../../models');
 const bcrypt = require('bcrypt');
 const jwt = require('jwt-simple');
-const { secret } = require('../../config/.env') 
-
+const { secret, linkedin } = require('../../config/.env') 
+const passport = require('passport')
 
 exports.register = async (req, res) => {
     const newUser = req.body;
@@ -24,6 +24,7 @@ exports.signin = async (req, res) => {
         const user = await model.User.findOne({ where: {
             email: req.body.email
         }});
+        
         if (!user) return res.status(401).send("Usuário não encontrado!");
         const isMatched = bcrypt.compareSync(req.body.password, user.password);
         if (!isMatched) return res.status(401).send("Email/Senha inválido");
@@ -71,4 +72,25 @@ exports.middlewareUser = function(req, res, next) {
         req.user = undefined
         next()
     }
+}
+
+exports.basicAuth = function(email, password, done) {
+        model.User.findOne({where: {
+            email
+        }}).then(user => {
+            const isMatched = bcrypt.hashSync(password, user.password)
+            if (!isMatched) return done(null, false, { message: "Incorrect password!"})
+            return done(null, user)
+        }).catch(err => done(err))
+}
+
+exports.logIn = function (req, res, next) {
+    passport.authenticate('local', function (err, user, info) {
+        if (err) { return next(err); }
+        if (!user) { return res.redirect(linkedin.callbackURL); }
+        req.logIn(user, function(err) {
+            if (err) { return next(err) }
+            return res.redirect(linkedin.callbackURL);
+        })
+    })(req, res, next)
 }
