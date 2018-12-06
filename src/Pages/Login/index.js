@@ -54,7 +54,7 @@ export class LoginPage extends Component {
                 <Col>
                     <h2 className="text-center page-title">Bem vindo de volta!</h2>
                     <p className="text-wrapper">
-                        Para se manter conectado conosco, favor inserir 
+                        Para se manter conectado conosco, favor inserir
                         seu endereço de Email e sua Senha
                     </p>
 
@@ -63,35 +63,40 @@ export class LoginPage extends Component {
                     <div className="divider">
                         <span>OU</span>
                     </div>
-                    
-                    <Formsy.Form onValid={this.enableButton} onInvalid={this.disableButton} >                        
-                        
+
+                    <Formsy.Form onValid={this.enableButton} onInvalid={this.disableButton} >
+
                         {/* INPUT DE EMAIL */}
                         <FormGroup>
                             <Label for="email" className="mb-0">Email</Label>
                             <FormInput  validations={{
                                             isEmail: true
-                                        }} 
+                                        }}
                                         validationErrors={{
                                             isEmail: 'O e-mail digitado é inválido'
-                                        }} 
-                                        type="email" 
-                                        name="email" 
+                                        }}
+                                        type="email"
+                                        name="email"
                                         id="email"
                                         className="form-control"
                                         placeholder="email@exemplo.com" />
                         </FormGroup>
 
                         {/* INPUT DE SENHA */}
-                        <FormGroup>
-                            <Label for="password" className="mb-0">Senha</Label>
-                            <FormInput  type="password" 
-                                        name="password" 
-                                        validations={{
-                                            passwordRule: PasswordRule
-                                        }}
-                                        id="password"
-                                        className="form-control"/>
+                        <FormGroup row>
+                            <Col>
+                                <Label for="password" className="mb-0">Senha</Label>
+                                <FormInput  type="password"
+                                            name="password"
+                                            validations={{
+                                                passwordRule: PasswordRule
+                                            }}
+                                            id="password"
+                                            className="form-control"/>
+                                <Link className="link float-right" to="/recoverypassword">
+                                    Esqueceu sua senha
+                                </Link>
+                            </Col>
                         </FormGroup>
 
                         <Row>
@@ -100,7 +105,7 @@ export class LoginPage extends Component {
                             </Col>
                             <Col className="text-right">
                                 <Button disabled={!this.state.canSubmit}
-                                        className="px-4" 
+                                        className="px-4"
                                         color="primary">Entrar</Button>
                             </Col>
                         </Row>
@@ -110,6 +115,6 @@ export class LoginPage extends Component {
             </Row>
         );
     }
-} 
+}
 
 // End of file
