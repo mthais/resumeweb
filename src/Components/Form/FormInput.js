@@ -33,7 +33,7 @@ export class FormInput extends Formsy.Mixin {
 
     /**
      * Render the Input
-     * 
+     *
      */
     render() {
 
@@ -42,16 +42,16 @@ export class FormInput extends Formsy.Mixin {
 
         // Get the message errors
         const errorMessage = this.getErrorMessage();
-        
+
         // Return the view
         return (
             <div>
-                <Input  {...rest} 
-                        type={type} 
+                <Input  {...rest}
+                        type={type}
                         value={type == 'checkbox' ? 'S' : this.getValue()}
                         invalid={errorMessage ? true : false}
                         onChange={this.updateValue} />
-                <FormFeedback invalid>{errorMessage}</FormFeedback>
+                <FormFeedback>{errorMessage}</FormFeedback>
             </div>
         );
     }
