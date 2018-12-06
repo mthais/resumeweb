@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { PasswordRule } from './../../Rules/PasswordRule';
 import { FormInput } from './../../Components/Form/FormInput';
 import { LinkedinButton } from './../../Components/Social/Linkedin';
-import { Card, Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Row, Col, Button, FormGroup, Label } from 'reactstrap';
 
 export class LoginPage extends Component {
 
