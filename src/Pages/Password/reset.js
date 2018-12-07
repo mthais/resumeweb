@@ -23,7 +23,7 @@ export class ResetPasswordPage extends Component {
     disableButton() {
         this.setState({
             canSubmit: false
-        })
+        });
     }
 
     /**
@@ -37,7 +37,7 @@ export class ResetPasswordPage extends Component {
     }
 
     render() {
-        const {canSubmit} = this.state
+        const {canSubmit} = this.state;
 
         return (
             <Row>
@@ -90,6 +90,6 @@ export class ResetPasswordPage extends Component {
                     </Formsy.Form>
                 </Col>
             </Row>
-        )
+        );
     }
 }

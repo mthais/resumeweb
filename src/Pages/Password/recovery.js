@@ -21,7 +21,7 @@ export class RecoveryPasswordPage extends Component {
     disableButton() {
         this.setState({
             canSubmit: false
-        })
+        });
     }
 
     /**
@@ -36,7 +36,7 @@ export class RecoveryPasswordPage extends Component {
 
 
     render() {
-        const { canSubmit } = this.state
+        const { canSubmit } = this.state;
 
         return (
             <Row>
@@ -74,6 +74,6 @@ export class RecoveryPasswordPage extends Component {
                     </Formsy.Form>
                 </Col>
             </Row>
-        )
+        );
     }
 }
