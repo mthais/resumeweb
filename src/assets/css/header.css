@@ -1,0 +1,49 @@
+.main-menu{
+    margin-left: 100px ;
+  }
+li{
+    padding-left: 30px;
+    font-size: 13px;
+}
+.Planos {
+    margin-right: 20px;
+    color: white;
+}
+.toggledown.btn.btn-secondary{
+    color: white;
+    background-color: #1a75ff;
+    border: none;
+    padding: 6px 20px;
+}
+/* quries */
+@media (max-width: 575.98px) { 
+    li{
+        margin-top: 10px;
+        padding: 0px
+    }
+    .main-menu {
+        margin-left: 0px;
+        text-align: center
+    }
+    .navbar-nav {
+        display: none
+    }
+    .toggledown.btn.btn-secondary{
+        display : none
+    }
+    .Planos {
+        margin-left: 20px;
+    }
+ }
+/* @media (min-width: 576px) { 
+    .main-menu {
+        margin-top: 90px;
+        margin-left: 0px;
+    }
+ } */
+ /* @media (min-width: 768px) { 
+    .main-menu {
+        margin-top: 90px;
+        margin-left: 0px;
+    }
+ } */
