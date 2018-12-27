@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { PasswordRule } from './../../Rules/PasswordRule';
 import { FormInput } from './../../Components/Form/FormInput';
 import { LinkedinButton } from './../../Components/Social/Linkedin';
-import { Card, Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Card, Row, Col, Button, Form, FormGroup, Label, Input, Container, CardBody } from 'reactstrap';
 
 export class SignupPage extends Component {
 
@@ -18,7 +18,7 @@ export class SignupPage extends Component {
             canSubmit: false
         }
         this.disableButton = this.disableButton.bind(this);
-        this.enableButton  = this.enableButton.bind(this);
+        this.enableButton = this.enableButton.bind(this);
     }
 
     /**
@@ -47,91 +47,101 @@ export class SignupPage extends Component {
      */
     render() {
         return (
-            <Row>
-                <Col className="d-none d-sm-block pt-5">
-                    <img width="100%" src="/login_person.png" />
-                </Col>
-                <Col>
-                    <h2 className="text-center page-title">Bem Vindo!</h2>
+            <Container>
+                <Row>
+                    <Col xs="12" md={{ size: 8, offset: 2 }} className="pt-5">
+                        <Card>
+                            <CardBody>
+                                <Row>
+                                    <Col className="d-none d-sm-block pt-5">
+                                        <img width="100%" src="/login_person.png" />
+                                    </Col>
+                                    <Col>
+                                        <h2 className="text-center page-title">Bem Vindo!</h2>
 
-                    <LinkedinButton></LinkedinButton>
+                                        <LinkedinButton></LinkedinButton>
 
-                    <div className="divider">
-                        <span>OU</span>
-                    </div>
-                    
-                    <Formsy.Form onValid={this.enableButton} onInvalid={this.disableButton} >      
+                                        <div className="divider">
+                                            <span>OU</span>
+                                        </div>
 
-                        {/* INPUT DE NAME */}
-                        <FormGroup>
-                            <Label for="name" className="mb-0">Nome</Label>
-                            <FormInput  name="name" 
-                                        required
-                                        validations={{
-                                            maxLength: 20
-                                        }}
-                                        validationErrors={{
-                                            maxLength: "O campo nome precisa ter no máximo 20 letras."
-                                        }}
-                                        maxLength="20"
-                                        id="name"
-                                        className="form-control"/>
-                        </FormGroup>                  
-                        
-                        {/* INPUT DE EMAIL */}
-                        <FormGroup>
-                            <Label for="email" className="mb-0">Email</Label>
-                            <FormInput  validations={{
-                                            isEmail: true
-                                        }} 
-                                        validationErrors={{
-                                            isEmail: 'O e-mail digitado é inválido'
-                                        }} 
-                                        type="email" 
-                                        name="email" 
-                                        id="email"
-                                        placeholder="email@exemplo.com"
-                                        className="form-control"/>
-                        </FormGroup>
+                                        <Formsy.Form onValid={this.enableButton} onInvalid={this.disableButton} >
 
-                        {/* INPUT DE SENHA */}
-                        <FormGroup>
-                            <Label for="password" className="mb-0">Senha</Label>
-                            <FormInput  type="password" 
-                                        name="password" 
-                                        validations={{
-                                            passwordRule: PasswordRule
-                                        }}
-                                        id="password"
-                                        className="form-control"/>                        
-                        </FormGroup>
+                                            {/* INPUT DE NAME */}
+                                            <FormGroup>
+                                                <Label for="name" className="mb-0">Nome</Label>
+                                                <FormInput name="name"
+                                                    required
+                                                    validations={{
+                                                        maxLength: 20
+                                                    }}
+                                                    validationErrors={{
+                                                        maxLength: "O campo nome precisa ter no máximo 20 letras."
+                                                    }}
+                                                    maxLength="20"
+                                                    id="name"
+                                                    className="form-control" />
+                                            </FormGroup>
 
-                        {/* INPUT DE AGRREMENT */}
-                        <FormGroup check>
-                            <Label className="text-wrapper" check>
-                                <FormInput required type="checkbox" name="policies" id="policies" />
-                                Para cadastrar, você concorda com nossa 
-                                <Link to={''} className="link"> Politica de privacidade</Link> e 
+                                            {/* INPUT DE EMAIL */}
+                                            <FormGroup>
+                                                <Label for="email" className="mb-0">Email</Label>
+                                                <FormInput validations={{
+                                                    isEmail: true
+                                                }}
+                                                    validationErrors={{
+                                                        isEmail: 'O e-mail digitado é inválido'
+                                                    }}
+                                                    type="email"
+                                                    name="email"
+                                                    id="email"
+                                                    placeholder="email@exemplo.com"
+                                                    className="form-control" />
+                                            </FormGroup>
+
+                                            {/* INPUT DE SENHA */}
+                                            <FormGroup>
+                                                <Label for="password" className="mb-0">Senha</Label>
+                                                <FormInput type="password"
+                                                    name="password"
+                                                    validations={{
+                                                        passwordRule: PasswordRule
+                                                    }}
+                                                    id="password"
+                                                    className="form-control" />
+                                            </FormGroup>
+
+                                            {/* INPUT DE AGRREMENT */}
+                                            <FormGroup check>
+                                                <Label className="text-wrapper" check>
+                                                    <FormInput required type="checkbox" name="policies" id="policies" />
+                                                    Para cadastrar, você concorda com nossa
+                                <Link to={''} className="link"> Politica de privacidade</Link> e
                                 <Link to={''} className="link"> Termos de uso</Link>
-                            </Label>
-                        </FormGroup>
+                                                </Label>
+                                            </FormGroup>
 
-                        <Row className="pt-3">
-                            <Col>
-                                <Link className="link" to="/login">Eu já tenho uma conta!</Link>
-                            </Col>
-                            <Col className="text-right">
-                                <Button disabled={!this.state.canSubmit} 
-                                        className="px-4" 
-                                        color="primary">Cadastrar</Button>
-                            </Col>
-                        </Row>
+                                            <Row className="pt-3">
+                                                <Col>
+                                                    <Link className="link" to="/login">Eu já tenho uma conta!</Link>
+                                                </Col>
+                                                <Col className="text-right">
+                                                    <Button disabled={!this.state.canSubmit}
+                                                        className="px-4"
+                                                        color="primary">Cadastrar</Button>
+                                                </Col>
+                                            </Row>
 
-                    </Formsy.Form>
-                </Col>
-            </Row>
+                                        </Formsy.Form>
+                                    </Col>
+                                </Row>
+                            </CardBody>
+                        </Card>
+                    </Col>
+                </Row>
+            </Container>
         );
     }
-} 
+}
 
 // End of file

@@ -5,26 +5,20 @@ import { LoginPage } from './Pages/Login';
 import { SignupPage } from './Pages/Signup';
 import { RecoveryPasswordPage } from './Pages/Password/recovery';
 import { ResetPasswordPage } from './Pages/Password/reset';
+import { Dashboard } from './Pages/Dashboard';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <Container>
-          <Row>
-            <Col xs="12" md={{ size: 8, offset: 2 }} className="pt-5">
-              <Card>
-                <CardBody>
-                  <Route exact path="/" component={LoginPage} />
-                  <Route path="/login"  component={LoginPage} />
-                  <Route path="/signup" component={SignupPage} />
-                  <Route path="/recoverypassword" component={RecoveryPasswordPage} />
-                  <Route path="/resetpassword" component={ResetPasswordPage} />
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
+        <div>
+          <Route path="/dashboard" component={Dashboard} />
+          <Route exact path="/" component={LoginPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/signup" component={SignupPage} />
+          <Route path="/recoverypassword" component={RecoveryPasswordPage} />
+          <Route path="/resetpassword" component={ResetPasswordPage} />
+        </div>
       </Router>
     );
   }
