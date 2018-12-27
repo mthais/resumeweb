@@ -1,4 +1,4 @@
-### Description 
+Description 
 
 ### Why
 Motivations when solve this issue
@@ -11,6 +11,9 @@ current behavior
 
 ### Expected behavior
 expect behavior
+
+usefull links
+https://github.com/mthais/resumeweb
 
 ### Screenshot attached
 some screenshot
@@ -25,4 +28,5 @@ steps to solve
 ### What you will need to complete this issue
 Extra requirements to complete the task
 
-
+### Tips
+Important things to know to better find the solution for this task
