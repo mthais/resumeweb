@@ -37,16 +37,16 @@ export default class Header extends React.Component {
             <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="main-menu" navbar>
                 <NavItem>
-                  <NavLink>Meus Curriculos</NavLink>
+                  <NavLink>Meus Currículo</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink>Carta de Apresentacao</NavLink>
+                  <NavLink>carta de apresentação</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink>Empregos</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink>Compartilhar</NavLink>
+                  <NavLink>compartilhar</NavLink>
                 </NavItem>
             </Nav>
               <Nav color="white" className=" ml-auto " navbar>
@@ -55,18 +55,20 @@ export default class Header extends React.Component {
                 </Button>
                 <UncontrolledDropdown>
                   <DropdownToggle className="toggledown">
-                    Perlfil <i class="fa fa-chevron-down"></i>
+                    Perfil <i class="fa fa-chevron-down"></i>
                   </DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem>
-                      Option 1
+                      Conta
                     </DropdownItem>
                     <DropdownItem>
-                      Option 2
+                      Contato
                     </DropdownItem>
-                    <DropdownItem divider />
                     <DropdownItem>
-                      Reset
+                      FAQ
+                    </DropdownItem>
+                    <DropdownItem>
+                      Sair
                     </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>

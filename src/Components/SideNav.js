@@ -14,16 +14,16 @@ class TopNav extends Component {
         return (
             <div className="SideNav">
                 <Row>
-                    <Col md={3}>
+                    <Col md={2}>
                         <div className="div1">
                             <br />
                             <div className="box"></div>
                         </div>
                     </Col>
-                    <Col md={9}>
+                    <Col md={10}>
                         <SideNavBody />
                     </Col>
-                    <Col md={3}>
+                    {/* <Col md={3}>
                         <div className="div2">
                             <br />
                             <div className="box2"></div>
@@ -31,7 +31,7 @@ class TopNav extends Component {
                     </Col>
                     <Col md={9}>
                         <SideNavBody />
-                    </Col>
+                    </Col> */}
                 </Row>
             </div >
         );

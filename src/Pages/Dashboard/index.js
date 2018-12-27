@@ -15,7 +15,7 @@ export class Dashboard extends Component {
                 <br />
                 <div className="Dashboard">
                     <TopNav />
-                    <div className="cariculo">
+                    <div className="curriculo">
                         <Button className="button">Criar novo Curriculo</Button>
                     </div>
                     <br />

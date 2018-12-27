@@ -7,13 +7,19 @@ li{
 }
 .Planos {
     margin-right: 20px;
-    color: white;
+    /* color: white; */
 }
 .toggledown.btn.btn-secondary{
     color: white;
     background-color: #1a75ff;
     border: none;
     padding: 6px 20px;
+}
+.dropdown-item:hover {
+    /* color: #16181b; */
+    background-color: #1a75ff;
+    text-decoration: none;
+    color: white;
 }
 /* quries */
 @media (max-width: 575.98px) { 

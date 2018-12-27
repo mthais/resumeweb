@@ -6,7 +6,7 @@ class TopNav extends Component {
         return (
             <div className="TopNav">
                 <Row>
-                    <Col md={2}>
+                    <Col md={2} className="novidades">
                         <button class="button button4">Novidades</button>
                     </Col>
                     <Col md={7}>
@@ -18,7 +18,7 @@ class TopNav extends Component {
                     </Col>
                     <Col md={3} className="Inscrever">
                         <span>Voce quer se inscrever para receber
-                        atualizacoes?<a href="#"> Inscrever</a></span>
+                        atualizacoes?<a href="#">Inscrever</a></span>
                     </Col>
                 </Row>
             </div>
