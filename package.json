@@ -44,5 +44,11 @@
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-standard": "^4.0.0",
     "husky": "^1.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm test"
+    }
   }
 }
