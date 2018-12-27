@@ -35,7 +35,7 @@
     "eject": "react-scripts eject",
     "start:dev": "npm run build && node server/index.js",
     "start": "npm run build && node server/index.js",
-    "lint": "./node_modules/.bin/eslint ."
+    "lint": "./node_modules/.bin/eslint . --fix"
   },
   "devDependencies": {
     "eslint": "^5.11.1",
