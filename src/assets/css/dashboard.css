@@ -1,0 +1,147 @@
+.TopNav{
+    background-color: white;
+    min-height: 70px;
+}
+.Dashboard{
+    width: 98%;
+    margin-left: 10px;
+}
+
+/* Sidenav */
+.div1, .div2{
+    background-color: white;
+    min-height: 320px;
+    width: 186px;
+    border-left: solid 60px#c1ba71;
+    -webkit-box-shadow: 0px 0px 2px #ccc;
+    box-shadow: 0px 0px 2px #ccc;
+    border-radius: 5px;
+}
+.Inscrever {
+    color: #555;
+    font-size: 14px;
+    padding-top: 15px;
+    width: 50%;
+    padding-left: 6%;
+    margin-left: 5%;
+}
+.div2{
+    border-left: solid 80px#f4f4f4;
+}
+.box{
+    width: 90%;
+    margin-left: -25px;
+    background-color: grey;
+    height: 5vh;
+    border-radius: 3px;
+}
+.box2{
+    width: 90%;
+    margin-left: -25px;
+    background-color: white;
+    height: 8vh;
+    border: 2px solid darkgrey;
+    border-radius: 3px;
+}
+.curriculo{
+    min-height: 10vh;
+}
+.curriculo .button{
+    float: right;
+    background-color: #1a75ff;
+    border: none;
+    padding: 3px 5px 3px 5px;
+}
+.CV1 , .CV2{
+    margin-top: 130px;
+}
+.Nome-curriculo{
+    color: #1a75ff;
+}
+p{
+    color:  grey;
+    padding-top: 5px;
+}
+.dropdown-item{
+    color: #1a75ff;
+}
+DropdownToggle{
+    background-color: white;
+}
+.actions.row{
+    margin-top: 30px;
+}
+/* dropdown menu */
+ #item{
+    color: #1a75ff;
+}
+/* dropdown fa icon */
+.fas.fa-i-cursor{
+    font-size : 23px; 
+    padding-right: 10px; 
+    padding-left: 4px;
+}
+.far.fa-envelope{
+    font-size : 23px;
+    padding-right: 3px;
+}
+.far.fa-file-alt{
+    font-size : 25px;
+    padding-right: 5px; 
+    padding-left: 2px;
+}
+.fa.fa-trash-o{
+    font-size:28px;
+    padding-right: 5px;
+}
+/* Footer */
+.Footer{
+    min-height: 20hv;
+    padding-bottom: 20px;
+    color: gray;
+    margin-top: 100px;
+}
+.footer-item a{
+    padding-left : 12px;
+    font-size: 13px;
+    color: gray;
+    text-decoration: none;
+}
+.footer-para{
+    padding-left: 10px;
+}
+
+.btn-outline-primary{
+    color: #007bff ;
+ }
+ .btn-outline-primary:hover{
+    color: white ;
+ }
+/* quries */
+@media (max-width: 575.98px) { 
+    .Dashboard{
+        width: 100%;
+    }
+    .div1 , .div2{
+        background-color: white;
+        min-height: 50vh;
+        width: 100%;
+        border-left: solid 80px#c1ba71;
+    }
+    .actions.row{
+        margin-top: 0px;
+      
+    }
+    .btn:not(:disabled):not(.disabled) {
+        cursor: pointer;
+        /* width: 90%; */
+        margin-top: 10px;
+        padding: -9px
+    }
+    
+.dropdown, .dropleft, .dropright, .dropup {
+    position: relative;
+    width: 200%;
+    margin-top: 10px;
+}
+ }
