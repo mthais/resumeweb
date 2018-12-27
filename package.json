@@ -34,9 +34,15 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "start:dev": "npm run build && node server/index.js",
-    "start": "npm run build && node server/index.js"
+    "start": "npm run build && node server/index.js",
+    "lint": "./node_modules/.bin/eslint ."
   },
   "devDependencies": {
+    "eslint": "^5.11.1",
+    "eslint-config-taller": "^2.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-standard": "^4.0.0",
     "husky": "^1.2.1"
   }
 }
