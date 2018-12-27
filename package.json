@@ -35,5 +35,8 @@
     "eject": "react-scripts eject",
     "start:dev": "npm run build && node server/index.js",
     "start": "npm run build && node server/index.js"
+  },
+  "devDependencies": {
+    "husky": "^1.2.1"
   }
 }
