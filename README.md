@@ -17,8 +17,8 @@ To get started developing right away:
     * if you don't have any node installed on your pc you can use [NODE VERSION MANAGER (NVM)](https://github.com/creationix/nvm)
 * install dependencias with `npm i` or `yarn`
 * create a file **.env** in root based on **.env.example**
-* run project with `npm run start:dev`
-    * if you want serve react only use `npm run dev`
+* run project with `npm start` or `yarn start`
+    * if you want to serve react only use `npm run dev`
 
 ### Other npm commands
 * execute tests with `npm test`
