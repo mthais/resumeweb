@@ -7,7 +7,8 @@ import { Button } from 'reactstrap'
 import './../../assets/css/dashboard.css'
 import './../../assets/css/TopNav.css'
 import './../../assets/css/header.css'
-export class Dashboard extends Component {
+
+class Dashboard extends Component {
   render () {
     return (
       <div>
@@ -26,3 +27,5 @@ export class Dashboard extends Component {
     )
   }
 }
+
+export default Dashboard
