@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecoveryPasswordPage should pass with snapshot 1`] = `"<div class=\\"col\\"><h2 class=\\"text-center page-title\\">Esqueceu sua senha?</h2><p class=\\"text-wrapper\\">Digite seu endereço de e-mail abaixo e lhe enviaremos um link para redifinir sua senha.</p><form><div class=\\"position-relative form-group\\"><label for=\\"email\\" class=\\"mb-0\\">Email</label><div><input name=\\"email\\" id=\\"email\\" placeholder=\\"email@contato.com\\" type=\\"email\\" class=\\"form-control form-control\\" value=\\"\\"><div class=\\"invalid-feedback\\"></div></div></div><button class=\\"px-4 btn btn-primary\\">Enviar e-mail de redefinição de senha</button></form></div>"`;

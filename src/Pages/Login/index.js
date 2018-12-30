@@ -8,7 +8,7 @@ import { FormInput } from './../../Components/Form/FormInput'
 import { LinkedinButton } from './../../Components/Social/Linkedin'
 import { Row, Col, Button, FormGroup, Label } from 'reactstrap'
 
-class LoginPage extends Component {
+export class LoginPage extends Component {
   state = {
     canSubmit: false
   }
