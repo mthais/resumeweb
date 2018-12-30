@@ -3,7 +3,7 @@ import Formsy from 'formsy-react-2'
 import { Col, Button, FormGroup, Label } from 'reactstrap'
 import { FormInput } from './../../Components/Form/FormInput'
 
-export class RecoveryPasswordPage extends Component {
+class RecoveryPasswordPage extends Component {
   state = {
     canSubmit: false
   }
@@ -57,3 +57,5 @@ export class RecoveryPasswordPage extends Component {
     )
   }
 }
+
+export default RecoveryPasswordPage

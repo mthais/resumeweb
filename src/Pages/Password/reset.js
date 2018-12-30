@@ -4,7 +4,7 @@ import { Col, Button, FormGroup, Label } from 'reactstrap'
 import { FormInput } from '../../Components/Form/FormInput'
 import { PasswordRule } from './../../Rules/PasswordRule'
 
-export class ResetPasswordPage extends Component {
+class ResetPasswordPage extends Component {
   state = {
     canSubmit: false
   }
@@ -76,3 +76,5 @@ export class ResetPasswordPage extends Component {
     )
   }
 }
+
+export default ResetPasswordPage
