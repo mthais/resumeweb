@@ -13,11 +13,17 @@ The professional will enter your information in the application and you can get 
 
 To get started developing right away:
 
-* install node 8+ and npm 5+
+<sub>**If you want use only frontend environment start at 5th step**<sub>
+
+1. install [Postgres](https://www.postgresql.org/download/)
+2. adjust your Postgres settings into the config folder
+3. create database resumeweb
+4. run migrations with `npm run sequelize:migrations`
+5. install node 8+ and npm 5+
     * if you don't have any node installed on your pc you can use [NODE VERSION MANAGER (NVM)](https://github.com/creationix/nvm)
-* install dependencias with `npm i` or `yarn`
-* create a file **.env** in root based on **.env.example**
-* run project with `npm start` or `yarn start`
+6. install dependencias with `npm i` or `yarn`
+7. create a file **.env** in root based on **.env.example**
+8. run project with `npm start` or `yarn start`
     * if you want to serve react only use `npm run dev`
 
 ### Other npm commands
