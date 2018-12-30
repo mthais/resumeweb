@@ -1,12 +1,14 @@
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Formsy from 'formsy-react-2'
 import { Link } from 'react-router-dom'
-import React, { Component } from 'react'
+import { handleRegister } from '../../Store/User/actions'
 import { PasswordRule } from './../../Rules/PasswordRule'
 import { FormInput } from './../../Components/Form/FormInput'
 import { LinkedinButton } from './../../Components/Social/Linkedin'
 import { Row, Col, Button, FormGroup, Label } from 'reactstrap'
 
-export class SignupPage extends Component {
+class SignupPage extends Component {
   state = {
     canSubmit: false
   }
@@ -23,10 +25,20 @@ export class SignupPage extends Component {
     })
   }
 
-  submit = (data) => {
+  submit = async (data) => {
+    try {
+      await this.props.handleRegister(data)
+    }
+    catch (e) {
+      alert(e)
+    }
   }
 
   render () {
+    const { canSubmit } = this.state
+    const { isFetchingRegister } = this.props
+    const isSubmitButtonDisabled = !canSubmit || isFetchingRegister
+
     return (
       <Col>
         <h2 className='text-center page-title'>Bem Vindo!</h2>
@@ -100,7 +112,7 @@ export class SignupPage extends Component {
             <Col className='text-right'>
               <Button
                 type='submit'
-                disabled={ !this.state.canSubmit }
+                disabled={ isSubmitButtonDisabled }
                 className='px-4'
                 color='primary'>Cadastrar</Button>
             </Col>
@@ -112,4 +124,11 @@ export class SignupPage extends Component {
   }
 }
 
-// End of file
+const mapStateToProps = ({ users: { isFetchingRegister } }) => ({
+  isFetchingRegister
+})
+const mapDispatchToProps = dispatch => ({
+  handleRegister: (payload) => dispatch(handleRegister(payload))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignupPage)
