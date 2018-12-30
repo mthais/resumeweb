@@ -1,12 +1,14 @@
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Formsy from 'formsy-react-2'
 import { Link } from 'react-router-dom'
-import React, { Component } from 'react'
+import { handleLogin } from '../../Store/User/actions'
 import { PasswordRule } from './../../Rules/PasswordRule'
 import { FormInput } from './../../Components/Form/FormInput'
 import { LinkedinButton } from './../../Components/Social/Linkedin'
 import { Row, Col, Button, FormGroup, Label } from 'reactstrap'
 
-export class LoginPage extends Component {
+class LoginPage extends Component {
   state = {
     canSubmit: false
   }
@@ -21,10 +23,21 @@ export class LoginPage extends Component {
     })
   }
 
-  submit = data => {
+  submit = async data => {
+    try {
+      await this.props.handleLogin(data)
+      this.props.history.push('/')
+    }
+    catch (e) {
+      alert(e)
+    }
   }
 
   render () {
+    const { isFetchingLoggingIn } = this.props
+    const { canSubmit } = this.state
+    const isSubmitButtonDisabled = !canSubmit || isFetchingLoggingIn
+
     return (
       <Col>
         <h2 className='text-center page-title'>Bem vindo de volta!</h2>
@@ -83,7 +96,7 @@ export class LoginPage extends Component {
             <Col className='text-right'>
               <Button
                 type='submit'
-                disabled={ !this.state.canSubmit }
+                disabled={ isSubmitButtonDisabled }
                 className='px-4'
                 color='primary'
               >
@@ -98,4 +111,11 @@ export class LoginPage extends Component {
   }
 }
 
-// End of file
+const mapStateToProps = ({ users: { isFetchingLoggingIn } }) => ({
+  isFetchingLoggingIn
+})
+const mapDispatchToProps = dispatch => ({
+  handleLogin: (payload) => dispatch(handleLogin(payload))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage)
