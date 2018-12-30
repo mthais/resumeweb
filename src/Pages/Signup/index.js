@@ -7,34 +7,17 @@ import { LinkedinButton } from './../../Components/Social/Linkedin'
 import { Row, Col, Button, FormGroup, Label } from 'reactstrap'
 
 export class SignupPage extends Component {
-  /**
-     * Constructor method
-     *
-     */
-  constructor () {
-    super()
-    this.state = {
-      canSubmit: false
-    }
-    this.disableButton = this.disableButton.bind(this)
-    this.enableButton = this.enableButton.bind(this)
+  state = {
+    canSubmit: false
   }
 
-  /**
-     * Disable the submit button
-     *
-     */
-  disableButton () {
+  disableSubmitButton = () => {
     this.setState({
       canSubmit: false
     })
   }
 
-  /**
-     * Enable the submit button
-     *
-     */
-  enableButton () {
+  enableSubmitButton = () => {
     this.setState({
       canSubmit: true
     })
@@ -43,10 +26,6 @@ export class SignupPage extends Component {
   submit = (data) => {
   }
 
-  /**
-     * Render the Login Page
-     *
-     */
   render () {
     return (
       <Col>
@@ -58,7 +37,11 @@ export class SignupPage extends Component {
           <span>OU</span>
         </div>
 
-        <Formsy.Form onValidSubmit={ this.submit } onValid={ this.enableButton } onInvalid={ this.disableButton } >
+        <Formsy.Form
+          onValidSubmit={ this.submit }
+          onValid={ this.enableSubmitButton }
+          onInvalid={ this.disableSubmitButton }
+        >
 
           { /* INPUT DE NAME */ }
           <FormGroup>
