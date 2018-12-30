@@ -1,10 +1,10 @@
 import React from 'react'
 import { Route } from 'react-router'
 import { Row, Col, Card, CardBody, Container } from 'reactstrap'
-import { LoginPage } from '../Pages/Login'
-import { SignupPage } from '../Pages/Signup'
-import { RecoveryPasswordPage } from '../Pages/Password/recovery'
-import { ResetPasswordPage } from '../Pages/Password/reset'
+import LoginPage from '../Pages/Login'
+import SignupPage from '../Pages/Signup'
+import RecoveryPasswordPage from '../Pages/Password/recovery'
+import ResetPasswordPage from '../Pages/Password/reset'
 
 const sessionRoutes = [
   {
@@ -33,7 +33,11 @@ const Wrapper = ({ children }) => (
           <CardBody>
             <Row>
               <Col className='d-none d-sm-block pt-4'>
-                <img width='100%' src='/login_person.png' />
+                <img
+                  width='100%'
+                  src='/login_person.png'
+                  alt='Login Person'
+                />
               </Col>
               { children }
             </Row>
@@ -48,7 +52,7 @@ const sessionRouteLayout = ({ component: Component, path }) => (
   <Route
     exact
     path={ path }
-    render={ () => <Wrapper><Component /></Wrapper> }
+    render={ (props) => <Wrapper><Component { ...props } /></Wrapper> }
     key={ path }
   />
 )
