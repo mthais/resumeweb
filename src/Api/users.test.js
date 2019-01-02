@@ -49,7 +49,7 @@ describe('Api/users', () => {
   describe('register', () => {
     describe('when api returns correctly', () => {
       let apiResponse = {
-        user: { id: 1, name: 'user', email: 'user@test.com' }
+        id: 1, name: 'user', email: 'user@test.com'
       }
 
       beforeEach(() => {
@@ -58,7 +58,7 @@ describe('Api/users', () => {
 
       it('should return user and token', async () => {
         let result = await register()
-        expect(result).toEqual(apiResponse.user)
+        expect(result).toEqual(apiResponse)
       })
 
       it('should do a post request for /register', async () => {

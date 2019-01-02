@@ -204,7 +204,7 @@ describe('Store/User/actions', () => {
 
     describe('when api returns correctly', () => {
       const apiReturn = {
-        user: { id: 1, name: 'user', email: payload.email }
+        id: 1, name: 'user', email: payload.email
       }
 
       beforeEach(async () => {
@@ -234,7 +234,7 @@ describe('Store/User/actions', () => {
 
           expect(call).toEqual({
             type: SET_REGISTERED_USER,
-            payload: apiReturn.user
+            payload: apiReturn
           })
         })
       })

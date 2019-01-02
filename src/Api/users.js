@@ -35,7 +35,7 @@ export const login = async (data = {}) => {
  */
 export const register = async (data) => {
   try {
-    const { user: registeredUser } = await doRequest({
+    const registeredUser = await doRequest({
       url: ENDPOINTS.register,
       method: 'POST',
       body: JSON.stringify(data)
