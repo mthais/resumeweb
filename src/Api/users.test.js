@@ -22,11 +22,11 @@ describe('Api/users', () => {
         expect(result).toEqual(apiResponse)
       })
 
-      it('should do a get request for /login', async () => {
+      it('should do a post request for /login', async () => {
         await login()
         const [ enpoint, options ] = fetch.mock.calls[0]
         expect(enpoint).toEqual('/login')
-        expect(options.method.toLowerCase()).toEqual('get')
+        expect(options.method.toLowerCase()).toEqual('post')
       })
     })
 

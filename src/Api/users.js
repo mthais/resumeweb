@@ -15,6 +15,7 @@ const ENDPOINTS = {
 export const login = async (data = {}) => {
   try {
     const { user, token } = await doRequest({
+      method: 'POST',
       url: ENDPOINTS.login,
       body: JSON.stringify(data)
     })
