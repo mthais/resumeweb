@@ -3,32 +3,18 @@ import Formsy from 'formsy-react-2'
 import { Col, Button, FormGroup, Label } from 'reactstrap'
 import { FormInput } from './../../Components/Form/FormInput'
 
-export class RecoveryPasswordPage extends Component {
-  constructor () {
-    super()
-    this.state = {
-      canSubmit: false
-    }
-
-    this.disableButton = this.disableButton.bind(this)
-    this.enableButton = this.enableButton.bind(this)
+class RecoveryPasswordPage extends Component {
+  state = {
+    canSubmit: false
   }
 
-  /**
-     * Disable the submit button
-     *
-     */
-  disableButton () {
+  disableSubmitButton = () => {
     this.setState({
       canSubmit: false
     })
   }
 
-  /**
-     * Enable the submit button
-     *
-     */
-  enableButton () {
+  enableSubmitButton = () => {
     this.setState({
       canSubmit: true
     })
@@ -45,7 +31,7 @@ export class RecoveryPasswordPage extends Component {
                                 link para redifinir sua senha.
         </p>
 
-        <Formsy.Form onValid={ this.enableButton } onInvalid={ this.disableButton }>
+        <Formsy.Form onValid={ this.enableSubmitButton } onInvalid={ this.disableSubmitButton }>
           <FormGroup>
             <Label for='email' className='mb-0'>Email</Label>
             <FormInput
@@ -71,3 +57,5 @@ export class RecoveryPasswordPage extends Component {
     )
   }
 }
+
+export default RecoveryPasswordPage

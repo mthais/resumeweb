@@ -4,33 +4,18 @@ import { Col, Button, FormGroup, Label } from 'reactstrap'
 import { FormInput } from '../../Components/Form/FormInput'
 import { PasswordRule } from './../../Rules/PasswordRule'
 
-export class ResetPasswordPage extends Component {
-  constructor () {
-    super()
-
-    this.state = {
-      canSubmit: false,
-    }
-
-    this.disableButton = this.disableButton.bind(this)
-    this.enableButton = this.enableButton.bind(this)
+class ResetPasswordPage extends Component {
+  state = {
+    canSubmit: false
   }
 
-  /**
-     * Disable the submit button
-     *
-     */
-  disableButton () {
+  disableSubmitButton = () => {
     this.setState({
       canSubmit: false
     })
   }
 
-  /**
-     * Enable the submit button
-     *
-     */
-  enableButton () {
+  enableSubmitButton = () => {
     this.setState({
       canSubmit: true
     })
@@ -48,7 +33,10 @@ export class ResetPasswordPage extends Component {
                                 Digite abaixo sua nova senha!
         </p>
 
-        <Formsy.Form onValid={ this.enableButton } onInvalid={ this.disableButton }>
+        <Formsy.Form
+          onValid={ this.enableSubmitButton }
+          onInvalid={ this.disableSubmitButton }
+        >
           <FormGroup>
             <Label for='password' className='mb-0'>Nova Senha</Label>
             <FormInput
@@ -88,3 +76,5 @@ export class ResetPasswordPage extends Component {
     )
   }
 }
+
+export default ResetPasswordPage

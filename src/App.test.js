@@ -1,9 +1,21 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { shallow } from 'enzyme'
+import { Provider } from 'react-redux'
+import Router from './Router'
 import App from './App'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<App />, div)
-  ReactDOM.unmountComponentAtNode(div)
+describe('App', () => {
+  let wrapper
+
+  beforeEach(() => {
+    wrapper = shallow(<App />)
+  })
+
+  it('should have a provider component', () => {
+    expect(wrapper.find(Provider)).toHaveLength(1)
+  })
+
+  it('should have a router component', () => {
+    expect(wrapper.find(Router)).toHaveLength(1)
+  })
 })
